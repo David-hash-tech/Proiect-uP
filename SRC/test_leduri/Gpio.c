@@ -1,19 +1,42 @@
 #include "Gpio.h"
 
-#define LED_PIN (12) // PORT A12
-#define LED2_PIN (2) // PORT A2
+#define LED_PIN12 (12) // PORT A12
+#define LED_PIN4 (4) // PORT A4
+#define LED_PIN5 (5) // PORT A5
 
-void OutputPIN_Init(void){
+void OutputPIN_Init(void)
+{
+	
 	
 	SIM->SCGC5 |= SIM_SCGC5_PORTA_MASK;
 	
-	PORTA->PCR[LED_PIN] &= ~PORT_PCR_MUX_MASK;
-	PORTA->PCR[LED_PIN] |= PORT_PCR_MUX(1);
+	PORTA->PCR[LED_PIN12] &= ~PORT_PCR_MUX_MASK;
+	PORTA->PCR[LED_PIN12] |= PORT_PCR_MUX(1);
 	
-	GPIOA->PDDR |= (1<<LED_PIN);
-	GPIOA->PCOR |= (1<<LED_PIN);
+	GPIOA->PDDR |= (1<<LED_PIN12);
+	GPIOA->PCOR |= (1<<LED_PIN12);
 	
-	// punem alternativa 1(GPIO)
-	PORTA->PCR[LED2_PIN] &= ~PORT_PCR_MUX_MASK;
-	PORTA->PCR[LED2_PIN] &= PORT_PCR_MUX(0);
+	//----
+	
+	PORTA->PCR[LED_PIN4] &= ~PORT_PCR_MUX_MASK;
+	PORTA->PCR[LED_PIN4] |= PORT_PCR_MUX(1);
+	
+	GPIOA->PDDR |= (1<<LED_PIN4);
+	GPIOA->PCOR |= (1<<LED_PIN4);
+	
+	//----
+	
+	PORTA->PCR[LED_PIN5] &= ~PORT_PCR_MUX_MASK;
+	PORTA->PCR[LED_PIN5] |= PORT_PCR_MUX(1);
+	
+	GPIOA->PDDR |= (1<<LED_PIN5);
+	GPIOA->PCOR |= (1<<LED_PIN5);
+	
+	
+	// punem alternativa 1(GPIO) -> nu se mai afiseaza la terminal
+	//OBS: DACA DEZACTIVAM PINUL PTA2 NU SE MAI FACE AFISAREA IN TERMINAL 
+//	PORTA->PCR[LED2_PIN] &= ~PORT_PCR_MUX_MASK;
+//	PORTA->PCR[LED2_PIN] &= PORT_PCR_MUX(0);
 }
+
+

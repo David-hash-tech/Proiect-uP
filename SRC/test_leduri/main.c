@@ -1,24 +1,38 @@
+#include "MKL25Z4.h"
 #include "Uart.h"
 #include "Gpio.h"
 
-extern uint32_t timer_value;
-extern uint8_t led_state;
-
-
 extern char c;
-extern int is_char;
+extern char buffer[32];
 
-int main() {
-	
-	UART0_Init(9600);
+extern int write, read;
+
+
+int main()
+{
+	uint16_t i;
+	UART0_Init(115200);
 	OutputPIN_Init();
-	while(1) 
+	while (1) 
 	{
-		if(is_char)
+		if (read != write)	
 		{
-			UART0_Transmit(c);
-			is_char = 0;
+	
+			if (buffer[read] == 0x0D)
+			{
+				//pt enter
+				UART0_Transmit(0x0D); //Carriage Return
+				UART0_Transmit(0x0A); //Line Feed
+			}
+			else 
+				UART0_Transmit(buffer[read]);
+			
+			read++;
+			read = read % 32;
 		}
+				
 	}
+	
 	return 0;
+	
 }

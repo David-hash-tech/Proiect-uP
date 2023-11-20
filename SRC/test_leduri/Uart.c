@@ -1,10 +1,18 @@
 #include "Uart.h"
+#define LED_PIN12 (12) // PORT A12
+#define LED_PIN4 (4) // PORT A4
+#define LED_PIN5 (5) // PORT A5
 
-#define LED_PIN (12) // PORT A
+int led_state_pin12 = 0;
+int led_state_pin4 = 0;
+int led_state_pin5 = 0;
+
 char c; 
-uint8_t led_state = 0;
+char buffer[32];
 
-int is_char = 0;
+int write, read;
+int print_buffer;
+int full;
 
 void UART0_Transmit(uint8_t data)
 {
@@ -14,7 +22,7 @@ void UART0_Transmit(uint8_t data)
 	
 }
 
-uint8_t UART0_Receive(void)
+uint8_t UART0_receive(void)
 {
 	//Punem in asteptare pana cand registrul de receptie nu este plin
 	while(!(UART0->S1 & UART0_S1_RDRF_MASK));
@@ -47,7 +55,7 @@ void UART0_Init(uint32_t baud_rate)
 	UART0->C2 &= ~((UART0_C2_RE_MASK) | (UART0_C2_TE_MASK)); 
 	
 	//Configurare Baud Rate
-	uint32_t osr = 8; // Over-Sampling Rate (numarul de esantioane luate per bit-time)
+	uint32_t osr = 15; // Over-Sampling Rate (numarul de esantioane luate per bit-time)
 	
 	//SBR - vom retine valoarea baud rate-ului calculat pe baza frecventei ceasului de sistem
 	// 	 SBR  -		b16 b15 b14 [b13 b12 b11 b10 b09		b08 b07 b06 b05 b04 b03 b02 b01] &
@@ -78,22 +86,59 @@ void UART0_Init(uint32_t baud_rate)
 	
 }
 
+void toggleLED(int pin)
+{
+	int led_state;
+	if(pin == LED_PIN12)
+	{
+		led_state = led_state_pin12;
+		led_state_pin12 = (led_state_pin12 + 1) % 2;
+	}
+	else if(pin == LED_PIN4)
+	{	
+		led_state = led_state_pin4;
+		led_state_pin4 = (led_state_pin4 + 1) % 2;
+	}
+	else
+	{	
+		led_state = led_state_pin5;
+		led_state_pin5 = (led_state_pin5 + 1) % 2;
+	}
+	
+	if(led_state)
+	{
+		GPIOA->PCOR |= (1<<pin);
+	}
+	else
+	{
+		GPIOA->PSOR |= (1<<pin);
+	}
+}
+
 void UART0_IRQHandler(void) {
 
 		if(UART0->S1 & UART0_S1_RDRF_MASK) {
 			c = UART0->D;
 			
-		is_char = 1;
+			buffer[write] = c;
+			write++;
+			write = write % 32;
 			
-		if(led_state)
-		{
-			GPIOA->PCOR |= (1<<LED_PIN);
-			led_state = 0;
+			if(c >= '0' && c < '4')
+				toggleLED(LED_PIN4);
+			
+			if(c >= '4' && c < '7')
+			{	
+				toggleLED(LED_PIN4);
+				toggleLED(LED_PIN5);
+			}
+			
+			if(c >= '7' && c <= '9')
+			{	
+				toggleLED(LED_PIN4);
+				toggleLED(LED_PIN5);
+				toggleLED(LED_PIN12);
+			}
+			
 		}
-		else
-		{
-			GPIOA->PSOR |= (1<<LED_PIN);
-			led_state = 1;
-		}
-		
-}}
+}

@@ -3,31 +3,159 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.37.0.0
+IDE-Version: µVision V5.38.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Angela Bureaca, Bureaca, LIC=----
+License Information: David Hutanu, Academia Tehnica Militara Ferdinand I, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain:       MDK-Lite  Version: 5.38.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.18
-Assembler:       Armasm.exe V6.18
-Linker/Locator:  ArmLink.exe V6.18
-Library Manager: ArmAr.exe V6.18
-Hex Converter:   FromElf.exe V6.18
-CPU DLL:         SARMCM3.DLL V5.37.0.0
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
 Dialog DLL:      DARMCM1.DLL V1.19.6.0
-Target DLL:      CMSIS_AGDI.dll V1.33.12.0
+Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-C:\Users\angel\Desktop\anul 4\SEM 1\Microprocesoare - A\PROIECT_Angi+David\test_leduri\leduri.uvprojx
-Project File Date:  11/16/2023
+D:\An 4\Eu\Microprocesoare\proiect_git\Proiect-uP\SRC\test_leduri\leduri.uvprojx
+Project File Date:  11/20/2023
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-".\Objects\leduri.axf" - 0 Error(s), 0 Warning(s).
+assembling startup_MKL25Z4.s...
+Gpio.c(3): warning: // comments are not allowed in this language [-Wcomment]
+#define LED_PIN12 (12) // PORT A12
+                       ^
+1 warning generated.
+compiling Gpio.c...
+compiling system_MKL25Z4.c...
+main.c(2): warning: In file included from...
+./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
+void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
+                                   ^
+./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
+void UART0_IRQHandler(void); // Handler-ul de intreruperi
+                                                         ^
+main.c(11): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int main()
+        ^
+         void
+main.c(14): warning: implicit declaration of function 'UART0_Init' [-Wimplicit-function-declaration]
+        UART0_Init(115200);
+        ^
+main.c(23): warning: // comments are not allowed in this language [-Wcomment]
+                                //pt enter
+                                ^
+main.c(38): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.c(13): warning: unused variable 'i' [-Wunused-variable]
+        uint16_t i;
+                 ^
+main.c(36): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0;
+               ^
+8 warnings generated.
+compiling main.c...
+Uart.c(1): warning: In file included from...
+./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
+void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
+                                   ^
+./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
+void UART0_IRQHandler(void); // Handler-ul de intreruperi
+                                                         ^
+Uart.c(2): warning: // comments are not allowed in this language [-Wcomment]
+#define LED_PIN12 (12) // PORT A12
+                       ^
+Uart.c(6): warning: no previous extern declaration for non-static variable 'led_state_pin12' [-Wmissing-variable-declarations]
+int led_state_pin12 = 0;
+    ^
+Uart.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int led_state_pin12 = 0;
+^
+Uart.c(7): warning: no previous extern declaration for non-static variable 'led_state_pin4' [-Wmissing-variable-declarations]
+int led_state_pin4 = 0;
+    ^
+Uart.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int led_state_pin4 = 0;
+^
+Uart.c(8): warning: no previous extern declaration for non-static variable 'led_state_pin5' [-Wmissing-variable-declarations]
+int led_state_pin5 = 0;
+    ^
+Uart.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int led_state_pin5 = 0;
+^
+Uart.c(20): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_TDRE_MASK));
+                                                ^
+Uart.c(20): note: put the semicolon on a separate line to silence this warning
+Uart.c(28): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_RDRF_MASK));
+                                                ^
+Uart.c(28): note: put the semicolon on a separate line to silence this warning
+Uart.c(58): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        uint32_t osr = 15; // Over-Sampling Rate (numarul de esantioane luate per bit-time)
+                 ^
+Uart.c(33): warning: no previous prototype for function 'UART0_Init' [-Wmissing-prototypes]
+void UART0_Init(uint32_t baud_rate)
+     ^
+Uart.c(33): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_Init(uint32_t baud_rate)
+^
+static 
+Uart.c(89): warning: no previous prototype for function 'toggleLED' [-Wmissing-prototypes]
+void toggleLED(int pin)
+     ^
+Uart.c(89): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void toggleLED(int pin)
+^
+static 
+Uart.c(10): warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
+char c; 
+     ^
+Uart.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char c; 
+^
+Uart.c(11): warning: no previous extern declaration for non-static variable 'buffer' [-Wmissing-variable-declarations]
+char buffer[32];
+     ^
+Uart.c(11): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char buffer[32];
+^
+Uart.c(13): warning: no previous extern declaration for non-static variable 'write' [-Wmissing-variable-declarations]
+int write, read;
+    ^
+Uart.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int write, read;
+^
+Uart.c(13): warning: no previous extern declaration for non-static variable 'read' [-Wmissing-variable-declarations]
+int write, read;
+           ^
+Uart.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int write, read;
+^
+Uart.c(14): warning: no previous extern declaration for non-static variable 'print_buffer' [-Wmissing-variable-declarations]
+int print_buffer;
+    ^
+Uart.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int print_buffer;
+^
+Uart.c(15): warning: no previous extern declaration for non-static variable 'full' [-Wmissing-variable-declarations]
+int full;
+    ^
+Uart.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int full;
+^
+17 warnings generated.
+compiling Uart.c...
+linking...
+Program Size: Code=1580 RO-data=216 RW-data=0 ZI-data=408  
+".\Objects\leduri.axf" - 0 Error(s), 26 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -46,18 +174,18 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/MKL25Z128xxx4
   ./RTE/_Target_1
-  C:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include
+  C:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Source file:   Device/Source/system_MKL25Z4.c
       Include file:  Device/Source/system_MKL25Z4.h
+      Source file:   Device/Source/system_MKL25Z4.c
       Source file:   Device/Source/ARM/startup_MKL25Z4.s
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
