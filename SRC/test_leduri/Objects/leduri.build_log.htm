@@ -27,41 +27,6 @@ Project File Date:  11/20/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-assembling startup_MKL25Z4.s...
-Gpio.c(3): warning: // comments are not allowed in this language [-Wcomment]
-#define LED_PIN12 (12) // PORT A12
-                       ^
-1 warning generated.
-compiling Gpio.c...
-compiling system_MKL25Z4.c...
-main.c(2): warning: In file included from...
-./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
-void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
-                                   ^
-./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
-void UART0_IRQHandler(void); // Handler-ul de intreruperi
-                                                         ^
-main.c(11): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int main()
-        ^
-         void
-main.c(14): warning: implicit declaration of function 'UART0_Init' [-Wimplicit-function-declaration]
-        UART0_Init(115200);
-        ^
-main.c(23): warning: // comments are not allowed in this language [-Wcomment]
-                                //pt enter
-                                ^
-main.c(38): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-main.c(13): warning: unused variable 'i' [-Wunused-variable]
-        uint16_t i;
-                 ^
-main.c(36): warning: 'return' will never be executed [-Wunreachable-code-return]
-        return 0;
-               ^
-8 warnings generated.
-compiling main.c...
 Uart.c(1): warning: In file included from...
 ./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
 void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
@@ -108,11 +73,18 @@ Uart.c(33): note: declare 'static' if the function is not intended to be used ou
 void UART0_Init(uint32_t baud_rate)
 ^
 static 
-Uart.c(89): warning: no previous prototype for function 'toggleLED' [-Wmissing-prototypes]
-void toggleLED(int pin)
+Uart.c(89): warning: no previous prototype for function 'openLed' [-Wmissing-prototypes]
+void openLed(int pin)
      ^
 Uart.c(89): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void toggleLED(int pin)
+void openLed(int pin)
+^
+static 
+Uart.c(108): warning: no previous prototype for function 'closeLed' [-Wmissing-prototypes]
+void closeLed(int pin)
+     ^
+Uart.c(108): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void closeLed(int pin)
 ^
 static 
 Uart.c(10): warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
@@ -151,11 +123,11 @@ int full;
 Uart.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 int full;
 ^
-17 warnings generated.
+18 warnings generated.
 compiling Uart.c...
 linking...
-Program Size: Code=1580 RO-data=216 RW-data=0 ZI-data=408  
-".\Objects\leduri.axf" - 0 Error(s), 26 Warning(s).
+Program Size: Code=1668 RO-data=216 RW-data=0 ZI-data=408  
+".\Objects\leduri.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -182,10 +154,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.5.0
+      Source file:   Device/Source/ARM/startup_MKL25Z4.s
       Include file:  Device/Source/system_MKL25Z4.h
       Source file:   Device/Source/system_MKL25Z4.c
-      Source file:   Device/Source/ARM/startup_MKL25Z4.s
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

@@ -86,59 +86,80 @@ void UART0_Init(uint32_t baud_rate)
 	
 }
 
-void toggleLED(int pin)
+void openLed(int pin)
 {
-	int led_state;
 	if(pin == LED_PIN12)
 	{
-		led_state = led_state_pin12;
-		led_state_pin12 = (led_state_pin12 + 1) % 2;
+		led_state_pin12 = 1;
+		GPIOA->PSOR |= (1<<pin);
 	}
 	else if(pin == LED_PIN4)
 	{	
-		led_state = led_state_pin4;
-		led_state_pin4 = (led_state_pin4 + 1) % 2;
+		led_state_pin4 = 1;
+		GPIOA->PSOR |= (1<<pin);
 	}
 	else
 	{	
-		led_state = led_state_pin5;
-		led_state_pin5 = (led_state_pin5 + 1) % 2;
-	}
-	
-	if(led_state)
-	{
-		GPIOA->PCOR |= (1<<pin);
-	}
-	else
-	{
+		led_state_pin5 = 1;
 		GPIOA->PSOR |= (1<<pin);
 	}
 }
 
-void UART0_IRQHandler(void) {
+void closeLed(int pin)
+{
+	if(pin == LED_PIN12)
+	{
+		led_state_pin12 = 0;
+		GPIOA->PCOR |= (1<<pin);
+	}
+	else if(pin == LED_PIN4)
+	{	
+		led_state_pin4 = 0;
+		GPIOA->PCOR |= (1<<pin);
+	}
+	else
+	{	
+		led_state_pin5 = 0;
+		GPIOA->PCOR |= (1<<pin);
+	}
+}
 
-		if(UART0->S1 & UART0_S1_RDRF_MASK) {
+void UART0_IRQHandler(void) 
+{
+		if(UART0->S1 & UART0_S1_RDRF_MASK) 
+		{
 			c = UART0->D;
 			
 			buffer[write] = c;
 			write++;
 			write = write % 32;
 			
-			if(c >= '0' && c < '4')
-				toggleLED(LED_PIN4);
+			if(c == '0')
+			{
+				closeLed(LED_PIN4);
+				closeLed(LED_PIN5);
+				closeLed(LED_PIN12);
+			}
+			
+			if(c > '0' && c < '4')
+			{
+				openLed(LED_PIN4);
+				closeLed(LED_PIN5);
+				closeLed(LED_PIN12);
+			}
 			
 			if(c >= '4' && c < '7')
 			{	
-				toggleLED(LED_PIN4);
-				toggleLED(LED_PIN5);
+				openLed(LED_PIN4);
+				openLed(LED_PIN5);
+				closeLed(LED_PIN12);
 			}
 			
 			if(c >= '7' && c <= '9')
 			{	
-				toggleLED(LED_PIN4);
-				toggleLED(LED_PIN5);
-				toggleLED(LED_PIN12);
+				openLed(LED_PIN4);
+				openLed(LED_PIN5);
+				openLed(LED_PIN12);
 			}
-			
 		}
 }
