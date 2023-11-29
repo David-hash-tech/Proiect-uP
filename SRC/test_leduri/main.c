@@ -1,4 +1,5 @@
 #include "MKL25Z4.h"
+#include "Pit.h"
 #include "Uart.h"
 #include "Gpio.h"
 
@@ -11,8 +12,9 @@ extern int write, read;
 int main()
 {
 	uint16_t i;
-	UART0_Init(115200);
+	UART0_Init(9600);
 	OutputPIN_Init();
+	PIT_Init();
 	while (1) 
 	{
 		if (read != write)	

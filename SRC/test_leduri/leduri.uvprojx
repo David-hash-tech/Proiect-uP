@@ -10,7 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6190000::V6.19::ARMCLANG</pCCUsed>
+      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -408,6 +408,16 @@
               <FileName>Uart.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Uart.h</FilePath>
+            </File>
+            <File>
+              <FileName>Pit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Pit.h</FilePath>
+            </File>
+            <File>
+              <FileName>Pit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Pit.c</FilePath>
             </File>
           </Files>
         </Group>
