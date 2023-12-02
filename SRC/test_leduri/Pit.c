@@ -51,7 +51,7 @@ uint8_t UTILS_PrintTimer(uint32_t value){
 void PIT_IRQHandler(void) {
 	
 	if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK) {
-		UTILS_PrintTimer(timer_value);
+		//UTILS_PrintTimer(timer_value);
 		timer_value++;
 		PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
 		if(led_state) {
