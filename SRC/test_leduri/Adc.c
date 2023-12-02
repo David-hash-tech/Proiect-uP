@@ -3,6 +3,14 @@
 
 #define ROTATION_SENSOR (13) // PTC2
 
+#define LED_PIN12 (12) // PORT A12
+#define LED_PIN4 (4) // PORT A4
+#define LED_PIN5 (5) // PORT A5
+
+int led_state_pin12 = 0;
+int led_state_pin4 = 0;
+int led_state_pin5 = 0;
+
 void ADC0_Init() {
 	
 	// Activarea semnalului de ceas pentru modulul periferic ADC
@@ -92,8 +100,9 @@ int ADC0_Calibrate()
 	return (0);
 }
 
-void getRotationSensorValue()
+uint16_t getRotationSensorValue()
 {
+	uint16_t rez = 0;
 	int index = 0;
 	int i;
 	char charValue[16];
@@ -108,6 +117,7 @@ void getRotationSensorValue()
 	
 	//citirea valorii transmise de senzor
 	analogValue = (uint16_t)ADC0->R[0];
+	rez = analogValue;
 	
 	//afisarea valorii obtinute
 	while(analogValue!=0)
@@ -122,15 +132,86 @@ void getRotationSensorValue()
 
 	UART0_Transmit(0x0A);
 	UART0_Transmit(0x0D);
+	
+	return rez;
+}
+
+// aprinde led-ul de pe pinul pin
+void openLed(int pin)
+{
+	if(pin == LED_PIN12)
+	{
+		led_state_pin12 = 1;
+		GPIOA->PSOR |= (1<<pin);
+	}
+	else if(pin == LED_PIN4)
+	{	
+		led_state_pin4 = 1;
+		GPIOA->PSOR |= (1<<pin);
+	}
+	else
+	{	
+		led_state_pin5 = 1;
+		GPIOA->PSOR |= (1<<pin);
+	}
+}
+
+// stinge led-ul de pe pinul pin
+void closeLed(int pin)
+{
+	if(pin == LED_PIN12)
+	{
+		led_state_pin12 = 0;
+		GPIOA->PCOR |= (1<<pin);
+	}
+	else if(pin == LED_PIN4)
+	{	
+		led_state_pin4 = 0;
+		GPIOA->PCOR |= (1<<pin);
+	}
+	else
+	{	
+		led_state_pin5 = 0;
+		GPIOA->PCOR |= (1<<pin);
+	}
 }
 
 void ADC0_IRQHandler()
 {
-	  getRotationSensorValue();
+	  uint16_t value; 
+	  value = getRotationSensorValue();
 
 		ADC0->SC1[0] = 0x00;
 		ADC0->SC1[0] |= ADC_SC1_ADCH(11); // PTB3
 	  ADC0->SC1[0] |= ADC_SC1_AIEN_MASK;
+	
+		if(value == 0)
+		{
+			closeLed(LED_PIN4);
+			closeLed(LED_PIN5);
+			closeLed(LED_PIN12);
+		}
+		
+		if(value > 0 && value < 17000)
+		{
+			openLed(LED_PIN4);
+			closeLed(LED_PIN5);
+			closeLed(LED_PIN12);
+		}
+		
+		if(value >= 17000 && value < 34000)
+		{	
+			openLed(LED_PIN4);
+			openLed(LED_PIN5);
+			closeLed(LED_PIN12);
+		}
+		
+		if(value >= 34000 && value <= 50000)
+		{	
+			openLed(LED_PIN4);
+			openLed(LED_PIN5);
+			openLed(LED_PIN12);
+		}
 	
 		// delay 
 		int count = 100;

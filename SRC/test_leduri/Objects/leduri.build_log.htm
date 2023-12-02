@@ -27,83 +27,63 @@ Project File Date:  12/02/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-main.c(2): warning: In file included from...
-./Pit.h(3): warning: // comments are not allowed in this language [-Wcomment]
-void PIT_Init(void); // Functie de initializarea a modulului periferic
-                     ^
-./Pit.h(5): warning: no newline at end of file [-Wnewline-eof]
-uint8_t UTILS_PrintTimer(uint32_t value); // Functie menita sa printeze o valoare numarata in formatul MM:SS
-                                                                                                            ^
-main.c(3): warning: In file included from...
+Uart.c(1): warning: In file included from...
 ./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
 void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
                                    ^
-./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
-void UART0_IRQHandler(void); // Handler-ul de intreruperi
-                                                         ^
-main.c(5): warning: In file included from...
-./Adc.h(6): warning: no newline at end of file [-Wnewline-eof]
-void getRotationSensorValue(void);
-                                  ^
-main.c(12): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int main()
+./Uart.h(5): warning: no newline at end of file [-Wnewline-eof]
+void initUART0(uint32_t baud_rate); // Initializare a modulului UART pentru trasmiterea datelor, ce primeste ca parametru baud rate-ul dorit
+                                                                                                                                            ^
+Uart.c(9): warning: // comments are not allowed in this language [-Wcomment]
+        //Punem in asteptare pana cand registrul de transmisie a datelor nu este gol
         ^
-         void
-main.c(14): warning: implicit declaration of function 'UART0_Init' [-Wimplicit-function-declaration]
-        UART0_Init(9600);
-        ^
-main.c(25): warning: // comments are not allowed in this language [-Wcomment]
-                                //pt enter
-                                ^
-main.c(40): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-main.c(38): warning: 'return' will never be executed [-Wunreachable-code-return]
-        return 0;
-               ^
-10 warnings generated.
-compiling main.c...
-Adc.c(1): warning: In file included from...
-./Adc.h(6): warning: no newline at end of file [-Wnewline-eof]
-void getRotationSensorValue(void);
-                                  ^
-Adc.c(2): warning: In file included from...
-./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
-void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
-                                   ^
-./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
-void UART0_IRQHandler(void); // Handler-ul de intreruperi
-                                                         ^
-Adc.c(4): warning: // comments are not allowed in this language [-Wcomment]
-#define ROTATION_SENSOR (13) // PTC2
-                             ^
-Adc.c(6): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void ADC0_Init() {
-              ^
-               void
-Adc.c(38): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int ADC0_Calibrate() 
-                  ^
-                   void
-Adc.c(54): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-        uint16_t calValue = 0x0000;
-                 ^
-Adc.c(95): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void getRotationSensorValue()
-                           ^
-                            void
-Adc.c(127): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void ADC0_IRQHandler()
-                    ^
-                     void
-Adc.c(136): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-                int count = 100;
-                    ^
-10 warnings generated.
-compiling Adc.c...
+Uart.c(10): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_TDRE_MASK));
+                                                ^
+Uart.c(10): note: put the semicolon on a separate line to silence this warning
+Uart.c(17): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_RDRF_MASK));
+                                                ^
+Uart.c(17): note: put the semicolon on a separate line to silence this warning
+Uart.c(73): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+uint32_t osr = 8; // Over-Sampling Rate (numarul de esantioane luate per bit-time)
+         ^
+Uart.c(21): warning: no previous prototype for function 'UART0_Init' [-Wmissing-prototypes]
+void UART0_Init(uint32_t baud_rate)
+     ^
+Uart.c(21): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_Init(uint32_t baud_rate)
+^
+static 
+Uart.c(3): warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
+char c; 
+     ^
+Uart.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char c; 
+^
+Uart.c(4): warning: no previous extern declaration for non-static variable 'buffer' [-Wmissing-variable-declarations]
+char buffer[32];
+     ^
+Uart.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char buffer[32];
+^
+Uart.c(5): warning: no previous extern declaration for non-static variable 'write' [-Wmissing-variable-declarations]
+int write, read;
+    ^
+Uart.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int write, read;
+^
+Uart.c(5): warning: no previous extern declaration for non-static variable 'read' [-Wmissing-variable-declarations]
+int write, read;
+           ^
+Uart.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int write, read;
+^
+11 warnings generated.
+compiling Uart.c...
 linking...
-Program Size: Code=3044 RO-data=208 RW-data=0 ZI-data=416  
-".\Objects\leduri.axf" - 0 Error(s), 20 Warning(s).
+Program Size: Code=2992 RO-data=208 RW-data=0 ZI-data=416  
+".\Objects\leduri.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -133,7 +113,7 @@ Package Vendor: Keil
       Source file:   Device/Source/ARM/startup_MKL25Z4.s
       Include file:  Device/Source/system_MKL25Z4.h
       Source file:   Device/Source/system_MKL25Z4.c
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
