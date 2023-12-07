@@ -3,7 +3,9 @@
 
 #define LED_PIN (12) // PORT A
 uint32_t timer_value;
-uint8_t led_state;
+uint8_t order_leds = 1; // 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3
+												// 1 inseamna ca ordinea e inversa : negru(0), magenta(1), albastru(2), verde(3); si led_state = 3, 0, ce vreau eu
+uint8_t led_state = 3; 
 
 #define RED_LED_PIN (18) // PORT B
 #define GREEN_LED_PIN (19) // PORT B
@@ -54,14 +56,51 @@ void PIT_IRQHandler(void) {
 		//UTILS_PrintTimer(timer_value);
 		timer_value++;
 		PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
-		if(led_state) {
-			GPIOB->PSOR |= (1<<RED_LED_PIN);
-			led_state = 0;
+		
+		if(order_leds == 0)
+		{
+			if(led_state == 0) // daca ledul e verde
+			{
+				GPIOB->PSOR |= (1<<GREEN_LED_PIN); // string ledul verde
+				GPIOD->PCOR |= (1<<BLUE_LED_PIN); // pornesc ledul albastru
+				led_state = 1; // albastru(1)
+			}
+			else if(led_state == 1){ // daca ledul e albastru
+				GPIOB->PCOR |= (1<<RED_LED_PIN); // pornesc doar ledul rosu, albastru e deja pornit => magenta
+				led_state = 2; // magenta(2) care e obtinuta din (rosu + albastru)
+			}
+			else if(led_state == 2){ // daca ledul e magenta
+				GPIOB->PSOR |= (1<<RED_LED_PIN); // string ledul rosu
+				GPIOD->PSOR |= (1<<BLUE_LED_PIN); // sting ledul albastru
+				led_state = 3; // negru(3) care e obtinut din toate ledurile stinse
+			}
+			else if(led_state == 3){ // daca ledul e negru, adica toate ledurile sunt stinse
+				GPIOB->PCOR |= (1<<GREEN_LED_PIN); // pornesc ledul verde
+				led_state = 0; // magenta(2) care e obtinuta din (rosu + albastru)
+			}
 		}
-		else{
-			GPIOB->PCOR |= (1<<RED_LED_PIN);
-			UART0_Transmit(0x0A);
-			led_state = 1;
+		else if(order_leds == 1)
+		{
+			if(led_state == 0) // daca ledul e negru
+			{
+				GPIOB->PCOR |= (1<<RED_LED_PIN); // pornesc doar ledul rosu
+				GPIOD->PCOR |= (1<<BLUE_LED_PIN); // pornesc ledul albastru
+				led_state = 1; // magenta(1) care e obtinuta din (rosu + albastru)
+			}
+			else if(led_state == 1){ // daca ledul e magenta
+				GPIOB->PSOR |= (1<<RED_LED_PIN); // string ledul rosu, ramane doar cel albastru deschis
+				led_state = 2; // albastru(2)
+			}
+			else if(led_state == 2){ // daca ledul e albastru
+				GPIOD->PSOR |= (1<<BLUE_LED_PIN); // sting ledul albastru
+				GPIOB->PCOR |= (1<<GREEN_LED_PIN); // pornesc ledul verde
+				led_state = 3; // verde(3)
+			}
+			else if(led_state == 3){ // daca ledul e verde
+				GPIOB->PSOR |= (1<<GREEN_LED_PIN); // string ledul verde
+				led_state = 0; // negru(3) care e obtinut din toate ledurile stinse
+			}
 		}
+		
 	}
 }
