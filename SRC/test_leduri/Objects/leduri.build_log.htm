@@ -27,55 +27,77 @@ Project File Date:  12/07/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-Pit.c(1): warning: In file included from...
+main.c(2): warning: In file included from...
 ./Pit.h(3): warning: // comments are not allowed in this language [-Wcomment]
 void PIT_Init(void); // Functie de initializarea a modulului periferic
                      ^
 ./Pit.h(5): warning: no newline at end of file [-Wnewline-eof]
 uint8_t UTILS_PrintTimer(uint32_t value); // Functie menita sa printeze o valoare numarata in formatul MM:SS
                                                                                                             ^
-Pit.c(2): warning: In file included from...
+main.c(3): warning: In file included from...
 ./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
 void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
                                    ^
 ./Uart.h(5): warning: no newline at end of file [-Wnewline-eof]
 void initUART0(uint32_t baud_rate); // Initializare a modulului UART pentru trasmiterea datelor, ce primeste ca parametru baud rate-ul dorit
                                                                                                                                             ^
-Pit.c(4): warning: // comments are not allowed in this language [-Wcomment]
-#define LED_PIN (12) // PORT A
-                     ^
-Pit.c(6): warning: no previous extern declaration for non-static variable 'order_leds' [-Wmissing-variable-declarations]
-uint8_t order_leds = 1; // 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3
+main.c(9): warning: implicit declaration of function 'UART0_Init' [-Wimplicit-function-declaration]
+        UART0_Init(9600);
         ^
-Pit.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t order_leds = 1; // 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3
-^
-Pit.c(8): warning: no previous extern declaration for non-static variable 'led_state' [-Wmissing-variable-declarations]
-uint8_t led_state = 3; 
-        ^
-Pit.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t led_state = 3; 
-^
-Pit.c(38): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-        uint8_t minutes = value/60;
-                ~~~~~~~   ~~~~~^~~
-Pit.c(51): warning: non-void function does not return a value [-Wreturn-type]
-}
-^
-Pit.c(106): warning: no newline at end of file [-Wnewline-eof]
+main.c(20): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-Pit.c(5): warning: no previous extern declaration for non-static variable 'timer_value' [-Wmissing-variable-declarations]
-uint32_t timer_value;
+main.c(18): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0;
+               ^
+7 warnings generated.
+compiling main.c...
+Uart.c(1): warning: In file included from...
+./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
+void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
+                                   ^
+./Uart.h(5): warning: no newline at end of file [-Wnewline-eof]
+void initUART0(uint32_t baud_rate); // Initializare a modulului UART pentru trasmiterea datelor, ce primeste ca parametru baud rate-ul dorit
+                                                                                                                                            ^
+Uart.c(10): warning: // comments are not allowed in this language [-Wcomment]
+        //Punem in asteptare pana cand registrul de transmisie a datelor nu este gol
+        ^
+Uart.c(11): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_TDRE_MASK));
+                                                ^
+Uart.c(11): note: put the semicolon on a separate line to silence this warning
+Uart.c(18): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_RDRF_MASK));
+                                                ^
+Uart.c(18): note: put the semicolon on a separate line to silence this warning
+Uart.c(74): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+uint32_t osr = 8; // Over-Sampling Rate (numarul de esantioane luate per bit-time)
          ^
-Pit.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint32_t timer_value;
+Uart.c(22): warning: no previous prototype for function 'UART0_Init' [-Wmissing-prototypes]
+void UART0_Init(uint32_t baud_rate)
+     ^
+Uart.c(22): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_Init(uint32_t baud_rate)
 ^
-11 warnings generated.
-compiling Pit.c...
+static 
+Uart.c(124): warning: no previous prototype for function 'UART0_IRQHandler' [-Wmissing-prototypes]
+void UART0_IRQHandler(void) 
+     ^
+Uart.c(124): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_IRQHandler(void) 
+^
+static 
+Uart.c(3): warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
+char c; 
+     ^
+Uart.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char c; 
+^
+9 warnings generated.
+compiling Uart.c...
 linking...
-Program Size: Code=3288 RO-data=224 RW-data=4 ZI-data=408  
-".\Objects\leduri.axf" - 0 Error(s), 11 Warning(s).
+Program Size: Code=3340 RO-data=224 RW-data=4 ZI-data=376  
+".\Objects\leduri.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 

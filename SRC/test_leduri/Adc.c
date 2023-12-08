@@ -127,11 +127,11 @@ uint16_t getRotationSensorValue()
 		index = index + 1;
 	}
 	
-	for(i = 0; i < index ; i++)
-		UART0_Transmit(charValue[index - i - 1]);
+//	for(i = 0; i < index ; i++)
+//		UART0_Transmit(charValue[index - i - 1]);
 
-	UART0_Transmit(0x0A);
-	UART0_Transmit(0x0D);
+//	UART0_Transmit(0x0A);
+//	UART0_Transmit(0x0D);
 	
 	return rez;
 }

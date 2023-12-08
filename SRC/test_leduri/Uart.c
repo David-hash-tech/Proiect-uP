@@ -1,8 +1,9 @@
 #include "Uart.h"
 
 char c; 
-char buffer[32];
-int write, read;
+
+extern char order_leds;
+extern char is_changed;
 
 void UART0_Transmit(uint8_t data)
 {
@@ -110,7 +111,8 @@ UART0->S2 |= UART0_S2_RXINV_MASK;
 	UART0->C2 |= UART0_C2_RIE(1);
 	UART0->C2 |= ((UART_C2_RE_MASK) | (UART_C2_TE_MASK));
 	
-	//NVIC_EnableIRQ(UART0_IRQn);
+	NVIC_SetPriority(UART0_IRQn, 1); // setam prioritate mai mica decat la modulul de PIT pentru nu a interfera intre ele
+	NVIC_EnableIRQ(UART0_IRQn);
 }
 
 
@@ -118,17 +120,16 @@ UART0->S2 |= UART0_S2_RXINV_MASK;
 
 
 
-// handler de intrerupere la uart0
-//void UART0_IRQHandler(void) 
-//{
-//		if(UART0->S1 & UART0_S1_RDRF_MASK) 
-//		{
-//			c = UART0->D;
-//			
-//			buffer[write] = c;
-//			write++;
-//			write = write % 32;
-//			
-//			
-//		}
-//}
+ //handler de intrerupere la uart0
+void UART0_IRQHandler(void) 
+{
+		if(UART0->S1 & UART0_S1_RDRF_MASK) 
+		{
+			c = UART0->D;
+			
+			if(c == 'g')
+			{
+				is_changed = '1'; // 'g' imi spune ca s-a schimbat ordinea
+			}
+		}
+}
