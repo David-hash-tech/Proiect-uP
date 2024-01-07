@@ -77,9 +77,10 @@ void PIT_IRQHandler(void) {
 		}
 		else if(order_leds == '1')
 		{
-			led_state = (led_state - 1) %4;
-			if(led_state < 0)
+			if((led_state - 1) < 0)
 				led_state = 3;
+			else
+				led_state = (led_state - 1) % 4;
 		}
 		
 		
@@ -90,7 +91,7 @@ void PIT_IRQHandler(void) {
 				GPIOB->PSOR |= (1<<RED_LED_PIN); // string ledul rosu
 				GPIOD->PSOR |= (1<<BLUE_LED_PIN); // sting ledul albastru
 				
-				GPIOB->PCOR |= (1<<GREEN_LED_PIN); // pornesc ledul albastru
+				GPIOB->PCOR |= (1<<GREEN_LED_PIN); // pornesc ledul verde
 			}
 		
 		if(led_state == 1) // daca ledul e albastru
@@ -99,7 +100,7 @@ void PIT_IRQHandler(void) {
 				GPIOB->PSOR |= (1<<RED_LED_PIN); // string ledul rosu
 				GPIOD->PSOR |= (1<<BLUE_LED_PIN); // sting ledul albastru
 				
-				GPIOD->PCOR |= (1<<BLUE_LED_PIN); // pornesc doar ledul rosu, albastru e deja pornit => magenta
+				GPIOD->PCOR |= (1<<BLUE_LED_PIN); // pornesc doar ledul albastru
 			}
 	
 		if(led_state == 2){ // daca ledul e magenta
@@ -107,8 +108,8 @@ void PIT_IRQHandler(void) {
 				GPIOB->PSOR |= (1<<RED_LED_PIN); // string ledul rosu
 				GPIOD->PSOR |= (1<<BLUE_LED_PIN); // sting ledul albastru
 			
-				GPIOB->PCOR |= (1<<RED_LED_PIN); // string ledul rosu
-				GPIOD->PCOR |= (1<<BLUE_LED_PIN); // sting ledul albastru
+				GPIOB->PCOR |= (1<<RED_LED_PIN); // pornesc ledul rosu
+				GPIOD->PCOR |= (1<<BLUE_LED_PIN); // pornesc ledul albastru
 			}
 			
 		if(led_state == 3){ // daca ledul e negru, adica toate ledurile sunt stinse
