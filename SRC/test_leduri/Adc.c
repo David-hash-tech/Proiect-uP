@@ -1,7 +1,7 @@
 #include "Adc.h"
 #include "Uart.h"
 
-#define ROTATION_SENSOR (13) // PTC2
+#define ROTATION_SENSOR (11) // PTC2
 
 #define LED_PIN12 (12) // PORT A12
 #define LED_PIN4 (4) // PORT A4
@@ -117,6 +117,9 @@ uint16_t getRotationSensorValue()
 	
 	//citirea valorii transmise de senzor
 	analogValue = (uint16_t)ADC0->R[0];
+	
+	analogValue = analogValue*300/65535;
+	
 	rez = analogValue;
 	
 	//afisarea valorii obtinute
@@ -127,11 +130,11 @@ uint16_t getRotationSensorValue()
 		index = index + 1;
 	}
 	
-//	for(i = 0; i < index ; i++)
-//		UART0_Transmit(charValue[index - i - 1]);
+	for(i = 0; i < index ; i++)
+		UART0_Transmit(charValue[index - i - 1]);
 
-//	UART0_Transmit(0x0A);
-//	UART0_Transmit(0x0D);
+	UART0_Transmit(0x0A);
+	UART0_Transmit(0x0D);
 	
 	return rez;
 }
@@ -182,7 +185,6 @@ void ADC0_IRQHandler()
 	  value = getRotationSensorValue();
 
 		ADC0->SC1[0] = 0x00;
-		ADC0->SC1[0] |= ADC_SC1_ADCH(11); // PTB3
 	  ADC0->SC1[0] |= ADC_SC1_AIEN_MASK;
 	
 		if(value == 0)
@@ -192,30 +194,24 @@ void ADC0_IRQHandler()
 			closeLed(LED_PIN12);
 		}
 		
-		if(value > 0 && value < 17000)
+		if(value > 0 && value < 100)
 		{
 			openLed(LED_PIN4);
 			closeLed(LED_PIN5);
 			closeLed(LED_PIN12);
 		}
 		
-		if(value >= 17000 && value < 34000)
+		if(value >= 100 && value < 200)
 		{	
 			openLed(LED_PIN4);
 			openLed(LED_PIN5);
 			closeLed(LED_PIN12);
 		}
 		
-		if(value >= 34000 && value <= 50000)
+		if(value >= 200 && value <= 300)
 		{	
 			openLed(LED_PIN4);
 			openLed(LED_PIN5);
 			openLed(LED_PIN12);
 		}
-	
-		// delay 
-		int count = 100;
-		while(count)
-			count--;
-		
 }
