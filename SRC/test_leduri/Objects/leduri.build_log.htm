@@ -3,40 +3,30 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.37.0.0
+IDE-Version: µVision V5.38.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Angela Bureaca, Bureaca, LIC=----
+License Information: David Hutanu, Academia Tehnica Militara Ferdinand I, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain:       MDK-Lite  Version: 5.38.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.18
-Assembler:       Armasm.exe V6.18
-Linker/Locator:  ArmLink.exe V6.18
-Library Manager: ArmAr.exe V6.18
-Hex Converter:   FromElf.exe V6.18
-CPU DLL:         SARMCM3.DLL V5.37.0.0
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
 Dialog DLL:      DARMCM1.DLL V1.19.6.0
-Target DLL:      CMSIS_AGDI.dll V1.33.12.0
+Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-C:\Users\angel\Desktop\anul4\SEM1\Microprocesoare - A\PROIECT_Angi+David\proiect\SRC\test_leduri\leduri.uvprojx
-Project File Date:  12/07/2023
+D:\An 4\Eu\Microprocesoare\proiect_git\Proiect-uP\SRC\test_leduri\leduri.uvprojx
+Project File Date:  01/08/2024
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-Adc.c(2): warning: In file included from...
-./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
-void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
-                                   ^
-./Uart.h(5): warning: no newline at end of file [-Wnewline-eof]
-void initUART0(uint32_t baud_rate); // Initializare a modulului UART pentru trasmiterea datelor, ce primeste ca parametru baud rate-ul dorit
-                                                                                                                                            ^
-Adc.c(4): warning: // comments are not allowed in this language [-Wcomment]
-#define ROTATION_SENSOR (11) // PTC2
-                             ^
 Adc.c(10): warning: no previous extern declaration for non-static variable 'led_state_pin12' [-Wmissing-variable-declarations]
 int led_state_pin12 = 0;
     ^
@@ -55,14 +45,98 @@ int led_state_pin5 = 0;
 Adc.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 int led_state_pin5 = 0;
 ^
+Adc.c(14): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void ADC0_Init() {
+              ^
+               void
+Adc.c(46): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int ADC0_Calibrate() 
+                  ^
+                   void
 Adc.c(62): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
         uint16_t calValue = 0x0000;
                  ^
-7 warnings generated.
+Adc.c(103): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+uint16_t getRotationSensorValue()
+                               ^
+                                void
+Adc.c(182): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void ADC0_IRQHandler()
+                    ^
+                     void
+8 warnings generated.
 compiling Adc.c...
+main.c(7): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int main()
+        ^
+         void
+1 warning generated.
+compiling main.c...
+Uart.c(11): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_TDRE_MASK));
+                                                ^
+Uart.c(11): note: put the semicolon on a separate line to silence this warning
+Uart.c(18): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_RDRF_MASK));
+                                                ^
+Uart.c(18): note: put the semicolon on a separate line to silence this warning
+Uart.c(58): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+uint32_t osr = 8; /* Over-Sampling Rate (numarul de esantioane luate per bit-time)*/
+         ^
+Uart.c(3): warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
+char c; 
+     ^
+Uart.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char c; 
+^
+4 warnings generated.
+compiling Uart.c...
+Gpio.c(38): warning: // comments are not allowed in this language [-Wcomment]
+        // punem alternativa 1(GPIO) -> nu se mai afiseaza la terminal
+        ^
+1 warning generated.
+compiling Gpio.c...
+Pit.c(6): warning: no previous extern declaration for non-static variable 'order_leds' [-Wmissing-variable-declarations]
+char order_leds = '0'; /* 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3*/
+     ^
+Pit.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char order_leds = '0'; /* 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3*/
+^
+Pit.c(8): warning: no previous extern declaration for non-static variable 'is_changed' [-Wmissing-variable-declarations]
+char is_changed = '0';
+     ^
+Pit.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char is_changed = '0';
+^
+Pit.c(9): warning: no previous extern declaration for non-static variable 'led_state' [-Wmissing-variable-declarations]
+uint8_t led_state = 3; 
+        ^
+Pit.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint8_t led_state = 3; 
+^
+Pit.c(15): warning: no previous extern declaration for non-static variable 'colors' [-Wmissing-variable-declarations]
+char colors[] = "VAMN";
+     ^
+Pit.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char colors[] = "VAMN";
+^
+Pit.c(16): warning: no previous extern declaration for non-static variable 'order' [-Wmissing-variable-declarations]
+int order = 1;
+    ^
+Pit.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int order = 1;
+^
+Pit.c(5): warning: no previous extern declaration for non-static variable 'timer_value' [-Wmissing-variable-declarations]
+uint32_t timer_value;
+         ^
+Pit.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint32_t timer_value;
+^
+6 warnings generated.
+compiling Pit.c...
 linking...
-Program Size: Code=3404 RO-data=224 RW-data=4 ZI-data=376  
-".\Objects\leduri.axf" - 0 Error(s), 7 Warning(s).
+Program Size: Code=3388 RO-data=224 RW-data=4 ZI-data=368  
+".\Objects\leduri.axf" - 0 Error(s), 20 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -81,8 +155,8 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/MKL25Z128xxx4
   ./RTE/_Target_1
-  C:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include
+  C:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -90,8 +164,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:2.5.0
       Source file:   Device/Source/ARM/startup_MKL25Z4.s
-      Include file:  Device/Source/system_MKL25Z4.h
       Source file:   Device/Source/system_MKL25Z4.c
+      Include file:  Device/Source/system_MKL25Z4.h
 Build Time Elapsed:  00:00:00
 </pre>
 </body>

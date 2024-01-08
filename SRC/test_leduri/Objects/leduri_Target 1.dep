@@ -1,66 +1,66 @@
 Dependencies for Project 'leduri', Target 'Target 1': (DO NOT MODIFY !)
-CompilerVersion: 6180000::V6.18::ARMCLANG
-F (.\Gpio.c)(0x656703BF)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/gpio.o -MD)
-I (Gpio.h)(0x6564A1F8)
-I (C:\Users\angel\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6252A728)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6564A1F8)
-F (.\Gpio.h)(0x6564A1F8)()
-F (.\main.c)(0x65731DA8)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
-I (C:\Users\angel\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6252A728)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6564A1F8)
-I (Pit.h)(0x6368B260)
-I (Uart.h)(0x6571D7EF)
-I (Gpio.h)(0x6564A1F8)
-I (Adc.h)(0x6571D7EF)
-F (.\Uart.c)(0x65731D51)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/uart.o -MD)
-I (Uart.h)(0x6571D7EF)
-I (C:\Users\angel\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6252A728)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6564A1F8)
-F (.\Uart.h)(0x6571D7EF)()
-F (.\Pit.h)(0x6368B260)()
-F (.\Pit.c)(0x659ABEE0)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/pit.o -MD)
-I (Pit.h)(0x6368B260)
-I (C:\Users\angel\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6252A728)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6564A1F8)
-I (Uart.h)(0x6571D7EF)
-F (.\Adc.h)(0x6571D7EF)()
-F (.\Adc.c)(0x659C02C6)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/adc.o -MD)
-I (Adc.h)(0x6571D7EF)
-I (C:\Users\angel\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6252A728)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6564A1F8)
-I (Uart.h)(0x6571D7EF)
-F (RTE/Device/MKL25Z128xxx4/startup_MKL25Z4.s)(0x6564A1F8)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 537" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"MKL25Z128xxx4 SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_mkl25z4.o)
-F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.c)(0x6564A1F8)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/angel/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/angel/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/system_mkl25z4.o -MD)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6252A728)
-I (C:\Users\angel\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
-I (C:\Users\angel\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6564A1F8)
-F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.h)(0x6564A1F8)()
+CompilerVersion: 6190000::V6.19::ARMCLANG
+F (.\Gpio.c)(0x659C0AE5)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/gpio.o -MD)
+I (Gpio.h)(0x6573201B)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63888F58)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6573201C)
+F (.\Gpio.h)(0x6573201B)()
+F (.\main.c)(0x659C0B16)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63888F58)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6573201C)
+I (Pit.h)(0x659C0932)
+I (Uart.h)(0x659C0C6D)
+I (Gpio.h)(0x6573201B)
+I (Adc.h)(0x6573201B)
+F (.\Uart.c)(0x659C0C50)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/uart.o -MD)
+I (Uart.h)(0x659C0C6D)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63888F58)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6573201C)
+F (.\Uart.h)(0x659C0C6D)()
+F (.\Pit.h)(0x659C0932)()
+F (.\Pit.c)(0x659C090D)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/pit.o -MD)
+I (Pit.h)(0x659C0932)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63888F58)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6573201C)
+I (Uart.h)(0x659C0C6D)
+F (.\Adc.h)(0x6573201B)()
+F (.\Adc.c)(0x659C0774)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/adc.o -MD)
+I (Adc.h)(0x6573201B)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63888F58)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6573201C)
+I (Uart.h)(0x659C0C6D)
+F (RTE/Device/MKL25Z128xxx4/startup_MKL25Z4.s)(0x6573201C)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 538" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"MKL25Z128xxx4 SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_mkl25z4.o)
+F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.c)(0x6573201C)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/hutan/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/hutan/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/system_mkl25z4.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63888F58)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL25Z4.h)(0x585BC25A)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\hutan\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F912E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x6573201C)
+F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.h)(0x6573201C)()
