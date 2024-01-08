@@ -192,7 +192,7 @@ void ADC0_IRQHandler(void)
 			closeLed(LED_PIN12);
 		}
 		
-		if(value > 0 && value < 100)
+		if(value >= 0 && value < 100)
 		{
 			openLed(LED_PIN4);
 			closeLed(LED_PIN5);
