@@ -19,7 +19,7 @@ void PIT_Init(void) {
 	/* Oprirea decrementarii valorilor numaratoarelor in modul debug*/
 	PIT->MCR |= PIT_MCR_FRZ_MASK;  /* FRZ e pt debug, il pun pe 1 => timere sunt oprite cand depanam*/
 	
-	/* Setarea valoarii numaratorului de pe canalul 0 la o perioada de 1 secunda, vedem mai jos de unde am scos valoarea 0x9FFFFF*/
+	/* Setarea valoarii numaratorului de pe canalul 0 la o perioada de 1350 milisecunde*/
 	PIT->CHANNEL[0].LDVAL = 0x00D7FFFF;  /* valoarea calculata de noi pe foaie; e poza in documentul proiectului*/
 	
   /* Activarea intreruperilor pe canalul 0*/
