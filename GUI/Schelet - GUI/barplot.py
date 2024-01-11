@@ -100,17 +100,13 @@ class MainWindow(QMainWindow):
         self.serObj.write(command)
 
     def update_plot_data(self):
-        for _ in range(50):
-            received_string = self.serObj.readline()
-
+        
+        received_string = self.serObj.readline()
         received_string = received_string.decode('utf', errors='replace').strip("\n").strip("\r")
 
         try:
             rot = int(received_string)
-
-            #if rot < self.rot_values[-1] - 1 or rot > self.rot_values[-1] + 1 or self.rot_values[-1] < 1:
-                
-                
+            
             self.rot_values.pop(0)
             self.rot_values.append(rot)
             for i, bar in enumerate(self.bars):
@@ -121,9 +117,6 @@ class MainWindow(QMainWindow):
                     bar.set_color('yellow')
                 else:
                     bar.set_color('red')
-                    
-            #else:
-             #   rot = self.rot_values[-1]
 
             self.ax.set_xticklabels([])
             self.canvas.draw()

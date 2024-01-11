@@ -27,6 +27,40 @@ Project File Date:  01/08/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
+main.c(5): warning: In file included from...
+./Adc.h(8): warning: no newline at end of file [-Wnewline-eof]
+void closeLed(int pin);
+                       ^
+main.c(7): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int main()
+        ^
+         void
+2 warnings generated.
+compiling main.c...
+Pit.c(4): warning: no previous extern declaration for non-static variable 'order_leds' [-Wmissing-variable-declarations]
+char order_leds = '0'; /* 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3*/
+     ^
+Pit.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char order_leds = '0'; /* 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3*/
+^
+Pit.c(6): warning: no previous extern declaration for non-static variable 'is_changed' [-Wmissing-variable-declarations]
+char is_changed = '0';
+     ^
+Pit.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char is_changed = '0';
+^
+Pit.c(7): warning: no previous extern declaration for non-static variable 'led_state' [-Wmissing-variable-declarations]
+uint8_t led_state = 3; 
+        ^
+Pit.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint8_t led_state = 3; 
+^
+3 warnings generated.
+compiling Pit.c...
+Adc.c(1): warning: In file included from...
+./Adc.h(8): warning: no newline at end of file [-Wnewline-eof]
+void closeLed(int pin);
+                       ^
 Adc.c(10): warning: no previous extern declaration for non-static variable 'led_state_pin12' [-Wmissing-variable-declarations]
 int led_state_pin12 = 0;
     ^
@@ -45,98 +79,20 @@ int led_state_pin5 = 0;
 Adc.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 int led_state_pin5 = 0;
 ^
-Adc.c(14): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void ADC0_Init() {
-              ^
-               void
-Adc.c(46): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int ADC0_Calibrate() 
-                  ^
-                   void
+Adc.c(38): warning: // comments are not allowed in this language [-Wcomment]
+        //ADC0->SC1[0] |= ADC_SC1_AIEN_MASK;
+        ^
 Adc.c(62): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
         uint16_t calValue = 0x0000;
                  ^
-Adc.c(103): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-uint16_t getRotationSensorValue()
-                               ^
-                                void
-Adc.c(182): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void ADC0_IRQHandler()
-                    ^
-                     void
-8 warnings generated.
+Adc.c(186): warning: result of comparison of unsigned expression >= 0 is always true [-Wtautological-unsigned-zero-compare]
+                if(value >= 0 && value < 100)
+                   ~~~~~ ^  ~
+7 warnings generated.
 compiling Adc.c...
-main.c(7): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-int main()
-        ^
-         void
-1 warning generated.
-compiling main.c...
-Uart.c(11): warning: while loop has empty body [-Wempty-body]
-        while(!(UART0->S1 & UART0_S1_TDRE_MASK));
-                                                ^
-Uart.c(11): note: put the semicolon on a separate line to silence this warning
-Uart.c(18): warning: while loop has empty body [-Wempty-body]
-        while(!(UART0->S1 & UART0_S1_RDRF_MASK));
-                                                ^
-Uart.c(18): note: put the semicolon on a separate line to silence this warning
-Uart.c(58): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
-uint32_t osr = 8; /* Over-Sampling Rate (numarul de esantioane luate per bit-time)*/
-         ^
-Uart.c(3): warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
-char c; 
-     ^
-Uart.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-char c; 
-^
-4 warnings generated.
-compiling Uart.c...
-Gpio.c(38): warning: // comments are not allowed in this language [-Wcomment]
-        // punem alternativa 1(GPIO) -> nu se mai afiseaza la terminal
-        ^
-1 warning generated.
-compiling Gpio.c...
-Pit.c(6): warning: no previous extern declaration for non-static variable 'order_leds' [-Wmissing-variable-declarations]
-char order_leds = '0'; /* 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3*/
-     ^
-Pit.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-char order_leds = '0'; /* 0 inseamna ca ordinea e normala : verde(0), albastru(1), magenta(2), negru(3); si led_state = 3*/
-^
-Pit.c(8): warning: no previous extern declaration for non-static variable 'is_changed' [-Wmissing-variable-declarations]
-char is_changed = '0';
-     ^
-Pit.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-char is_changed = '0';
-^
-Pit.c(9): warning: no previous extern declaration for non-static variable 'led_state' [-Wmissing-variable-declarations]
-uint8_t led_state = 3; 
-        ^
-Pit.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t led_state = 3; 
-^
-Pit.c(15): warning: no previous extern declaration for non-static variable 'colors' [-Wmissing-variable-declarations]
-char colors[] = "VAMN";
-     ^
-Pit.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-char colors[] = "VAMN";
-^
-Pit.c(16): warning: no previous extern declaration for non-static variable 'order' [-Wmissing-variable-declarations]
-int order = 1;
-    ^
-Pit.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int order = 1;
-^
-Pit.c(5): warning: no previous extern declaration for non-static variable 'timer_value' [-Wmissing-variable-declarations]
-uint32_t timer_value;
-         ^
-Pit.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint32_t timer_value;
-^
-6 warnings generated.
-compiling Pit.c...
 linking...
-Program Size: Code=3388 RO-data=224 RW-data=4 ZI-data=368  
-".\Objects\leduri.axf" - 0 Error(s), 20 Warning(s).
+Program Size: Code=3400 RO-data=224 RW-data=4 ZI-data=368  
+".\Objects\leduri.axf" - 0 Error(s), 12 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -163,9 +119,9 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.5.0
+      Include file:  Device/Source/system_MKL25Z4.h
       Source file:   Device/Source/ARM/startup_MKL25Z4.s
       Source file:   Device/Source/system_MKL25Z4.c
-      Include file:  Device/Source/system_MKL25Z4.h
 Build Time Elapsed:  00:00:00
 </pre>
 </body>

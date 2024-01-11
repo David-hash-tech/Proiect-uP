@@ -34,9 +34,6 @@ void ADC0_Init(void) {
 	ADC0->SC1[0] |= ADC_SC1_ADCH(ROTATION_SENSOR);
 	
 	
-	/* Apeleaza o intrerupere dupa ce o conversie completa a fost realizata */
-	ADC0->SC1[0] |= ADC_SC1_AIEN_MASK;
-	
 	NVIC_SetPriority(ADC0_IRQn,6); /* setam prioritate mai mica decat la modulul de PIT pentru nu a interfera intre ele */
 	NVIC_EnableIRQ(ADC0_IRQn);	
 }
@@ -102,18 +99,11 @@ int ADC0_Calibrate(void)
 
 uint16_t getRotationSensorValue(void)
 {
-	uint16_t rez = 0;
-	int index = 0;
 	int i;
+	int index = 0;
+	uint16_t rez = 0;
 	char charValue[16];
-	uint16_t analogValue;
-	
-	/*configurare canal senzor de rotatie*/
-	ADC0->SC1[0] = 0x00;
-	ADC0->SC3 = 0x00;
-	ADC0->SC3 |= ADC_SC3_ADCO_MASK;
-	ADC0->SC1[0] |= ADC_SC1_ADCH(ROTATION_SENSOR);
-	ADC0->SC1[0] |= ADC_SC1_AIEN_MASK;
+	uint16_t analogValue = 0;
 	
 	/*citirea valorii transmise de senzor*/
 	analogValue = (uint16_t)ADC0->R[0];
@@ -182,15 +172,6 @@ void ADC0_IRQHandler(void)
 	  uint16_t value; 
 	  value = getRotationSensorValue();
 
-		ADC0->SC1[0] = 0x00;
-	  ADC0->SC1[0] |= ADC_SC1_AIEN_MASK;
-	
-		if(value == 0)
-		{
-			closeLed(LED_PIN4);
-			closeLed(LED_PIN5);
-			closeLed(LED_PIN12);
-		}
 		
 		if(value >= 0 && value < 100)
 		{
@@ -212,4 +193,6 @@ void ADC0_IRQHandler(void)
 			openLed(LED_PIN5);
 			openLed(LED_PIN12);
 		}
+		
+		ADC0->SC1[0] &= ~ADC_SC1_AIEN_MASK;
 }
