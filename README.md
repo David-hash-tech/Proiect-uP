@@ -39,12 +39,12 @@ de culori pentru LED-ul de pe placă.
 
 ## Contribuții
 - **Huțanu David:**
-  - Implementarea preluării datelor de la senzorul analog.
+  - Implementarea preluării datelor de la senzorul analog și integrarea UART.
   - Controlul LED-urilor externe în funcție de valorile măsurate.
 
 - **Bureacă Angela-Emilia:**
-  - Dezvoltarea modulului PIT pentru controlul LED-ului încorporat.
-  - Integrarea UART și realizarea interfeței grafice în Python.
+  - Dezvoltarea modulului PIT pentru controlul LED-ului încorporat și pentru trimiterea datelor de la target spre host.
+  - Realizarea interfeței grafice în Python.
 
 ## Dependințe Software
 - Keil uVision pentru dezvoltarea și încărcarea codului pe microcontroller.
