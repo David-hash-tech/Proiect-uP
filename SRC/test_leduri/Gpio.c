@@ -32,13 +32,6 @@ void OutputPIN_Init(void)
 	PORTA->PCR[LED_PIN5] |= PORT_PCR_MUX(1);
 	
 	GPIOA->PDDR |= (1<<LED_PIN5);
-	GPIOA->PCOR |= (1<<LED_PIN5);
-	
-	
-	// punem alternativa 1(GPIO) -> nu se mai afiseaza la terminal
-	//OBS: DACA DEZACTIVAM PINUL PTA2 NU SE MAI FACE AFISAREA IN TERMINAL 
-//	PORTA->PCR[LED2_PIN] &= ~PORT_PCR_MUX_MASK;
-//	PORTA->PCR[LED2_PIN] &= PORT_PCR_MUX(0);
 	
 	/* pt ledul de pe placa nu mai folosim pta12, punem una din alea 3 ptb18,..
 	// Activarea semnalului de ceas pentru pinii folositi in cadrul led-ului RGB*/
